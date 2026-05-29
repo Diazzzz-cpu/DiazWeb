@@ -137,7 +137,13 @@
               <div class="carousel-slide-inner">
 
                 <div class="project-visual project-visual--clinic">
-                  <img src="images/Enlogada set.png" alt="Enlogada Web Clinic Management System UI screenshot" />
+                  <img
+                    src="images/Enlogada set.png"
+                    alt="Enlogada Web Clinic Management System UI screenshot"
+                    class="project-preview-img"
+                    data-full="images/Enlogada set.png"
+                    data-title="Enlogada Web Clinic Management System"
+                  />
                 </div>
 
                 <div class="carousel-info">
@@ -160,7 +166,13 @@
               <div class="carousel-slide-inner">
 
                 <div class="project-visual project-visual--gym">
-                  <img src="images/KDGym set.png" alt="KDGym gym membership portal UI screenshot" />
+                  <img
+                    src="images/KDGym set.png"
+                    alt="KDGym gym membership portal UI screenshot"
+                    class="project-preview-img"
+                    data-full="images/KDGym set.png"
+                    data-title="KDGym Membership Portal"
+                  />
                 </div>
 
                 <div class="carousel-info">
@@ -183,7 +195,13 @@
               <div class="carousel-slide-inner">
 
                 <div class="project-visual project-visual--payroll">
-                  <img src="images/PaySync set.png" alt="PaySync payroll and scheduling system UI screenshot" />
+                  <img
+                    src="images/PaySync set.png"
+                    alt="PaySync payroll and scheduling system UI screenshot"
+                    class="project-preview-img"
+                    data-full="images/PaySync set.png"
+                    data-title="PaySync Web-based Payroll and Scheduling System"
+                  />
                 </div>
 
                 <div class="carousel-info">
@@ -361,6 +379,15 @@
 
   <!-- Back to top -->
   <button id="topBtn" aria-label="Back to top" title="Back to top">&#8679;</button>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightboxImage" />
+      <p id="lightboxTitle" class="lightbox-title"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -1147,6 +1147,112 @@ ul {
 }
 
 /* ============================
+   IMAGE LIGHTBOX
+   ============================ */
+.project-preview-img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.project-preview-img:hover {
+  transform: scale(1.015);
+  opacity: 0.92;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 95vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.lightbox-title {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+@media (max-width: 768px) {
+  .image-lightbox {
+    padding: 1rem;
+  }
+
+  .lightbox-content img {
+    max-width: 94vw;
+    max-height: 78vh;
+  }
+
+  .lightbox-title {
+    font-size: 0.85rem;
+  }
+
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+/* ============================
    SKILLS
    ============================ */
 .skills-container {

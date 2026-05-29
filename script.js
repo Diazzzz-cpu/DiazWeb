@@ -185,6 +185,46 @@ revealEls.forEach(el => revealObserver.observe(el));
 })();
 
 // ============================
+// IMAGE LIGHTBOX
+// ============================
+const imageLightbox = document.getElementById('imageLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(img) {
+  lightboxImage.src = img.dataset.full;
+  lightboxImage.alt = img.alt;
+  lightboxTitle.textContent = img.dataset.title;
+  imageLightbox.classList.add('active');
+  imageLightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  imageLightbox.classList.remove('active');
+  imageLightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+  lightboxImage.alt = '';
+  lightboxTitle.textContent = '';
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.project-preview-img').forEach(img => {
+  img.addEventListener('click', () => openLightbox(img));
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+imageLightbox.addEventListener('click', e => {
+  if (e.target === imageLightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && imageLightbox.classList.contains('active')) closeLightbox();
+});
+
+// ============================
 // CONTACT FORM HANDLER
 // ============================
 const form = document.getElementById('contactForm');
