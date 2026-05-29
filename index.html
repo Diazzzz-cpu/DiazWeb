@@ -7,57 +7,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <a href="#home" class="logo">Adryl Diaz</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
   </nav>
 
-  <header id="home" class="hero">
-    <div class="hero-content">
+  <header id="home" class="hero section-anchor">
+    <div class="hero-content reveal">
       <p class="eyebrow">3rd Year BSIT Student</p>
       <h1>Building practical web systems for school and real-world use.</h1>
       <p>I focus on web development, system design, database management, and practical applications.</p>
-      <a href="#projects" class="btn">View Projects</a>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn secondary">Contact Me</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="about" class="section">
+    <section id="about" class="section section-anchor reveal">
       <h2>About Me</h2>
       <p>I am a 3rd year Bachelor of Science in Information Technology student interested in creating clean, useful, and organized systems.</p>
     </section>
 
-    <section id="projects" class="section alt-section">
+    <section id="projects" class="section section-anchor alt-section reveal">
       <h2>Projects</h2>
       <div class="project-grid">
-        <article class="project-card">
-          <h3>Enlogada Web Clinic Management System</h3>
-          <p>A clinic management system for patient visits, diagnostic test records, appointments, payments, and diagnostic history viewing.</p>
-        </article>
-        <article class="project-card">
-          <h3>KDGym</h3>
-          <p>A gym membership portal for QR code check-ins, attendance logs, member management, and admin/staff monitoring.</p>
-        </article>
-        <article class="project-card">
-          <h3>PaySync</h3>
-          <p>A payroll and scheduling system for employee schedules, attendance monitoring, worked hours, and payroll computation.</p>
-        </article>
+        <article class="project-card"><h3>Enlogada Web Clinic Management System</h3><p>A clinic management system for patient visits, diagnostic records, appointments, payments, and diagnostic history viewing.</p></article>
+        <article class="project-card"><h3>KDGym</h3><p>A gym membership portal for QR code check-ins, attendance logs, member management, and admin/staff monitoring.</p></article>
+        <article class="project-card"><h3>PaySync</h3><p>A payroll and scheduling system for employee schedules, attendance monitoring, worked hours, and payroll computation.</p></article>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills" class="section section-anchor reveal">
       <h2>Skills</h2>
-      <div class="skills">
-        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Laravel</span><span>MySQL</span><span>React Native</span><span>Blazor</span><span>GitHub</span><span>Vercel</span>
-      </div>
+      <div class="skills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Laravel</span><span>MySQL</span><span>React Native</span><span>Blazor</span><span>GitHub</span><span>Vercel</span></div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section section-anchor reveal">
       <h2>Contact</h2>
       <div class="contact-box">
         <p>Email: devdiaz420@gmail.com</p>
@@ -67,8 +62,8 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Adryl Louise Agustin Diaz. All Rights Reserved.</p>
-  </footer>
+  <footer><p>&copy; 2026 Adryl Louise Agustin Diaz. All Rights Reserved.</p></footer>
+  <button id="topBtn" aria-label="Back to top">&#8593;</button>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -76,3 +76,49 @@ footer { text-align: center; padding: 24px; background: #0c1828; color: #64748b;
   .nav-links { flex-wrap: wrap; justify-content: center; }
   .project-grid { grid-template-columns: 1fr; }
 }
+
+
+.navbar.scrolled {
+  background: rgba(7, 16, 31, 0.96);
+  box-shadow: 0 1px 0 #1a2e48;
+}
+.nav-link.active { color: #38bdf8; }
+.menu-btn { display: none; background: transparent; border: 0; cursor: pointer; }
+.menu-btn span { display: block; width: 24px; height: 2px; background: #e2e8f0; margin: 5px 0; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.btn.secondary { background: transparent; border: 1px solid #38bdf8; color: #38bdf8; }
+.project-card { transition: transform 0.25s ease, border-color 0.25s ease; }
+.project-card:hover { transform: translateY(-6px); border-color: #38bdf8; }
+#topBtn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #a78bfa);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+#topBtn.visible { display: block; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) {
+  .navbar { flex-direction: row; }
+  .menu-btn { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    background: #07101f;
+    padding: 18px 8%;
+    border-bottom: 1px solid #1a2e48;
+  }
+  .nav-links.open { display: flex; }
+}
