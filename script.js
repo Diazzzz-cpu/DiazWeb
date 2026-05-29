@@ -45,3 +45,27 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.15 });
 revealItems.forEach(item => observer.observe(item));
+
+
+const carouselTrack = document.getElementById('carouselTrack');
+const dots = document.querySelectorAll('.dot');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let currentSlide = 0;
+let slideTimer;
+
+function showSlide(index) {
+  currentSlide = (index + dots.length) % dots.length;
+  carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+}
+
+function startSlider() {
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+}
+
+prevBtn.addEventListener('click', () => { showSlide(currentSlide - 1); startSlider(); });
+nextBtn.addEventListener('click', () => { showSlide(currentSlide + 1); startSlider(); });
+dots.forEach(dot => dot.addEventListener('click', () => { showSlide(Number(dot.dataset.index)); startSlider(); }));
+startSlider();

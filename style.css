@@ -122,3 +122,43 @@ footer { text-align: center; padding: 24px; background: #0c1828; color: #64748b;
   }
   .nav-links.open { display: flex; }
 }
+
+
+.carousel { max-width: 1100px; margin: 0 auto; }
+.carousel-window { overflow: hidden; border-radius: 18px; }
+.carousel-track { display: flex; transition: transform 0.5s ease; }
+.slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  background: #0f1f36;
+  border: 1px solid #1a2e48;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.project-visual { min-height: 320px; background: #081220; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.project-info { padding: 36px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.project-info span { color: #a78bfa; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+.project-info h3 { font-size: 1.5rem; }
+.project-info p { color: #94a3b8; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags small { color: #38bdf8; border: 1px solid rgba(56,189,248,0.25); border-radius: 999px; padding: 4px 10px; }
+.mock-sidebar { width: 70px; height: 220px; background: #050e1a; border-radius: 12px; margin-right: 14px; }
+.mock-panel { width: 260px; background: #0f1f36; border: 1px solid #1a2e48; border-radius: 14px; padding: 18px; }
+.mock-panel h4 { color: #38bdf8; margin-bottom: 12px; }
+.mock-panel div { height: 28px; background: #142540; border-radius: 8px; margin: 8px 0; }
+.mock-panel.wide { width: 320px; }
+.phone-frame { width: 170px; height: 300px; border: 3px solid #253552; border-radius: 28px; padding: 22px 14px; text-align: center; background: #0a1628; }
+.phone-frame h4 { color: #38bdf8; margin-bottom: 18px; }
+.qr-box { width: 90px; height: 90px; background: repeating-linear-gradient(45deg, #fff 0 6px, #1e293b 6px 12px); margin: 20px auto; border-radius: 8px; }
+.carousel-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 24px; }
+.carousel-controls button { cursor: pointer; }
+#prevBtn, #nextBtn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid #1a2e48; background: #0f1f36; color: #e2e8f0; }
+.dots { display: flex; gap: 8px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; border: 0; background: #1e3554; }
+.dot.active { background: #38bdf8; width: 24px; border-radius: 999px; }
+@media (max-width: 768px) {
+  .slide { grid-template-columns: 1fr; }
+  .project-visual { min-height: 230px; }
+  .project-info { padding: 24px; }
+}
