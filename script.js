@@ -1,1 +1,1 @@
-console.log("Portfolio loaded successfully.");
+console.log("Basic styled portfolio loaded.");
