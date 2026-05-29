@@ -458,6 +458,12 @@ ul {
   font-size: 1.02rem;
 }
 
+.school-highlight {
+  font-size: 1.12em;
+  font-weight: 800;
+  color: var(--text);
+}
+
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1284,6 +1290,10 @@ a.contact-card:hover {
 }
 
 /* Contact Form */
+.contact-form-wrap {
+  margin-top: 32px;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1543,6 +1553,10 @@ footer {
   .carousel-info {
     padding: 1.5rem;
     min-height: auto;
+  }
+
+  .contact-form-wrap {
+    margin-top: 0;
   }
 }
 
