@@ -1,16 +1,25 @@
 // ============================
-// NAVBAR SCROLL EFFECT
+// NAVBAR SCROLL & PROGRESS BAR
 // ============================
 const navbar = document.getElementById('navbar');
+const scrollProgress = document.getElementById('scrollProgress');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
+  if (window.scrollY > 40) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
   }
+
+  // Update top scroll progress bar
+  if (scrollProgress) {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    scrollProgress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  }
+
   updateActiveLink();
   toggleTopBtn();
 });
@@ -19,7 +28,7 @@ window.addEventListener('scroll', () => {
 // ACTIVE NAV LINK ON SCROLL
 // ============================
 function updateActiveLink() {
-  const scrollPos = window.scrollY + 120;
+  const scrollPos = window.scrollY + 140;
   sections.forEach(section => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
@@ -75,10 +84,11 @@ topBtn.addEventListener('click', () => {
 // TYPING ANIMATION
 // ============================
 const roles = [
-  'BSIT Student',
-  'Web Developer',
-  'System Builder',
-  'Database Enthusiast'
+  '4th Year BSIT Student',
+  'Full-Stack Web Developer',
+  'System Architect & Builder',
+  'TypeScript & .NET Developer',
+  'Database & API Engineer'
 ];
 let roleIndex = 0;
 let charIndex = 0;
@@ -92,7 +102,7 @@ function type() {
     charIndex++;
     if (charIndex === current.length) {
       isDeleting = true;
-      setTimeout(type, 1800);
+      setTimeout(type, 1900);
       return;
     }
   } else {
@@ -103,7 +113,7 @@ function type() {
       roleIndex = (roleIndex + 1) % roles.length;
     }
   }
-  setTimeout(type, isDeleting ? 55 : 95);
+  setTimeout(type, isDeleting ? 45 : 85);
 }
 
 type();
@@ -122,19 +132,20 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, {
   threshold: 0.12,
-  rootMargin: '0px 0px -60px 0px'
+  rootMargin: '0px 0px -50px 0px'
 });
 
 revealEls.forEach(el => revealObserver.observe(el));
 
 // ============================
-// PROJECT CAROUSEL
+// PROJECT CAROUSEL + QUICK TABS
 // ============================
 (function () {
   const track = document.getElementById('carouselTrack');
   if (!track) return;
 
   const dots = document.querySelectorAll('.carousel-dot');
+  const tabs = document.querySelectorAll('.project-tab');
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
   const viewport = track.closest('.carousel-viewport');
@@ -145,16 +156,23 @@ revealEls.forEach(el => revealObserver.observe(el));
   function goTo(index) {
     current = ((index % total) + total) % total;
     track.style.transform = `translateX(-${current * 100}%)`;
+
     dots.forEach((d, i) => {
       const active = i === current;
       d.classList.toggle('active', active);
       d.setAttribute('aria-selected', String(active));
     });
+
+    tabs.forEach((t, i) => {
+      const active = i === current;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+    });
   }
 
   function startAuto() {
     clearInterval(autoTimer);
-    autoTimer = setInterval(() => goTo(current + 1), 5000);
+    autoTimer = setInterval(() => goTo(current + 1), 6500);
   }
 
   function stopAuto() {
@@ -166,6 +184,10 @@ revealEls.forEach(el => revealObserver.observe(el));
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => { goTo(Number(dot.dataset.index)); startAuto(); });
+  });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => { goTo(Number(tab.dataset.index)); startAuto(); });
   });
 
   // Pause auto-slide while hovering
@@ -240,14 +262,15 @@ form.addEventListener('submit', (e) => {
   if (!name || !email || !message) return;
 
   const submitBtn = form.querySelector('button[type="submit"]');
+  const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending...';
+  submitBtn.innerHTML = '<span>Sending...</span>';
 
   setTimeout(() => {
     form.reset();
     formSuccess.classList.add('visible');
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send Message';
+    submitBtn.innerHTML = originalHTML;
 
     setTimeout(() => {
       formSuccess.classList.remove('visible');
